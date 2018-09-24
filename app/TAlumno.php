@@ -14,9 +14,9 @@ class TAlumno extends Model
      'ap_materno',
      'activo',
   ];
+  protected $hidden =[
+     'ap_materno',
+     'activo',
+ ];
   public $timestamps = false;
-
-  public function calificaciones(){
-     return $this->belongsTo('App/TCalificacion');
- }
 }

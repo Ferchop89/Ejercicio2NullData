@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// resource recibe nos parámetros(URI del recurso, Controlador que gestionará las peticiones)
+Route::apiResource('t_calificaciones','TCalificacionController');	// Todos los métodos menos Edit que mostraría un formulario de edición.

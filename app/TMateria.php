@@ -13,7 +13,8 @@ class TMateria extends Model
      'activo',
    ];
    public $timestamps = false;
-   public function calificaciones(){
-      return $this->belongsTo('App/TCalificacion');
-   }
+   protected $hidden = [
+      'id_t_materias',
+      'activo',
+   ];
 }

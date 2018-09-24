@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\TAlumno;
+use App\Http\Requests;
+
 use Illuminate\Http\Request;
 
 class TAlumnoController extends Controller
@@ -14,7 +16,7 @@ class TAlumnoController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(['status'=>'ok','data'=>TAlumno::all()], 200);
     }
 
     /**
@@ -35,7 +37,7 @@ class TAlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
     }
 
     /**
