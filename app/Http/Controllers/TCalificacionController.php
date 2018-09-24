@@ -11,6 +11,10 @@ use Carbon\Carbon;
 
 class TCalificacionController extends Controller
 {
+   public function __construct()
+	{
+		$this->middleware('auth.basic',['only'=>['store','show','update','destroy']]);
+	}
     /**
      * Display a listing of the resource.
      *
@@ -19,17 +23,6 @@ class TCalificacionController extends Controller
     public function index()
     {
         return response()->json(['status'=>'ok','data'=>TCalificacion::all()], 200);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-
     }
 
     /**
@@ -82,24 +75,16 @@ class TCalificacionController extends Controller
          ];
          array_push($msjs, $msj);
       }
+      if($promedio == 0)
+      {
+         return response()->json(['errors'=>array(['code'=>404,'message'=>'No existen registros de calificicaciones'])],404);
+      }
       $promedio = $promedio / count($calificaciones);
       $prom = [
          'promedio' => $promedio,
       ];
       array_push($msjs, $prom);
 		return response()->json($msjs, 200, [], JSON_UNESCAPED_SLASHES);
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\TCalificacion  $tCalificacion
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(TCalificacion $tCalificacion)
-    {
-        //
     }
 
     /**
