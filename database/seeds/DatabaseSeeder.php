@@ -17,10 +17,16 @@ class DatabaseSeeder extends Seeder
            't_materias',
            't_alumnos',
            't_calificaciones',
+           'puestos',
+           'empleados',
+           'habilidades'
         ]);
         $this->call(UserSeeder::class);
         $this->call(AlumnoSeeder::class);
         $this->call(MateriaSeeder::class);
+        $this->call(PuestoSeeder::class);
+        $this->call(EmpleadoSeeder::class);
+        $this->call(HabilidadSeeder::class);
     }
     protected function truncateTables(array $tables){
       DB::statement('SET FOREIGN_KEY_CHECKS = 0;');

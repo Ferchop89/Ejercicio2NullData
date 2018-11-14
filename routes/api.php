@@ -18,4 +18,4 @@ use Illuminate\Http\Request;
 // });
 
 // resource recibe nos parámetros(URI del recurso, Controlador que gestionará las peticiones)
-Route::apiResource('t_calificaciones','TCalificacionController');	
+Route::apiResource('empleados','EmpleadosController');
